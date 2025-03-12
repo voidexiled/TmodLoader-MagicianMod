@@ -1,0 +1,73 @@
+Items: {
+	ExampleSword: {
+		UsesXFocusResource: Uses {0} Focus
+		DisplayName: Example Sword
+		Tooltip: ""
+	}
+
+	DeckOfCards: {
+		UsesXFocusResource: Consumes {0} focus.
+		DisplayName: Deck Of Cards
+		Tooltip: Fires the card you have in your hand.
+		HeartsCardDescription: Hearts Card: Heals half of the damage inflicted plus {0} per target.
+		ClubsCardDescription: Clubs Card: Reduce the target defense by {0}% for {1} seconds.
+		DiamondsCardDescription:
+			'''
+			Diamonds Card: Regenerates {0} extra Focus Points.
+			         Bounces once and then deals x{1} damage.
+			'''
+		SpadesCardDescription: Spades Card: Apply bleeding low status to the target for {0} seconds, dealing {1} damage.
+	}
+
+	FocusCard: {
+		DisplayName: Focus Card
+		Tooltip: Increases your maximum focus by 20.
+	}
+
+	HeartBooster: {
+		DisplayName: Heart Booster
+		Tooltip: Increases your Hearts Cards base heal by {0} and his chance to appear in your deck by 100%.
+	}
+
+	ClubBooster: {
+		DisplayName: Club Booster
+		Tooltip: Increases your Clubs Cards chance to appear in your deck by 100%.
+	}
+}
+
+UI: {
+	InGameNotificationTitle: Welcome to the world, you are using Magician Class Mod!
+	FocusResource: Focus: {0} / {1}
+}
+
+DamageClasses.TrickeryDamage.DisplayName: Trickery Damage
+
+Projectiles: {
+	DeckOfCardsHoldout.DisplayName: Deck Of Cards Holdout
+	ClubsCard.DisplayName: Clubs Card
+	DiamondsCard.DisplayName: Diamonds Card
+	HeartsCard.DisplayName: Hearts Card
+	SpadesCard.DisplayName: Spades Card
+}
+
+Buffs: {
+	FocusRegenerationLow: {
+		DisplayName: Focus Regeneration Low
+		Description: Regenerates {0} extra Focus per second.
+	}
+
+	BuffFocusRegenerationLow: {
+		DisplayName: Buff Focus Regeneration Low
+		Description: Mods.MagicianClass.Buffs.BuffFocusRegenerationLow.Description
+	}
+
+	DebuffDefenseReductionLow: {
+		DisplayName: Debuff Defense Reduction Low
+		Description: Mods.MagicianClass.Buffs.DebuffDefenseReductionLow.Description
+	}
+
+	DebuffBleedingLevelOne: {
+		DisplayName: Debuff Bleeding Level One
+		Description: Mods.MagicianClass.Buffs.DebuffBleedingLevelOne.Description
+	}
+}

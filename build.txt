@@ -1,0 +1,3 @@
+displayName = Magician Class
+author = VoidExiled
+version = 0.1

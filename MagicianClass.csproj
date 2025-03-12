@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+		
+	</PropertyGroup>
+	<ItemGroup>
+	  <Folder Include="Content\Classes\Interfaces\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="tModLoader">
+	    <HintPath>D:\SteamLibrary\steamapps\common\tModLoader\tModLoader.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<!-- References -->
+
+</Project>
