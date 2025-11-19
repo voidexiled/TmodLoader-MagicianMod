@@ -79,6 +79,28 @@ namespace MagicianClass.Content.UI.FocusResourceUI
             base.Draw(spriteBatch);
         }
         
+        public override void Update(GameTime gameTime)
+        {
+            var player = Main.LocalPlayer.GetModPlayer<GlobalPlayer>();
+            var maxCards = player.FocusResourceMax2 / FocusCardValue;
+            var rows = maxCards > 10 ? 2 : 1;
+
+            _area.Width.Set(FrameWidth * Math.Min(maxCards, 10), 0f);
+            _area.Height.Set(FrameHeight * rows, 0f);
+            _barFrame.Width.Set(_area.Width.Pixels, 0f);
+            _barFrame.Height.Set(_area.Height.Pixels, 0f);
+
+            base.Update(gameTime);
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch)
+        {
+            var player = Main.LocalPlayer.GetModPlayer<GlobalPlayer>();
+            var hoverText = $"{FocusResourceUISystem.FocusResourceText.Format(player.FocusResourceCurrent, player.FocusResourceMax2)}";
+            if (_area.IsMouseHovering) UICommon.TooltipMouseText(hoverText);
+            base.DrawSelf(spriteBatch);
+        }
+        
         private Vector2 CalculateCardPosition(int baseX, int baseY, int index)
         {
             var offsetY = index >= 10 ? FrameHeight : 0;
@@ -304,27 +326,7 @@ namespace MagicianClass.Content.UI.FocusResourceUI
          
          */
 
-        public override void Update(GameTime gameTime)
-        {
-            var player = Main.LocalPlayer.GetModPlayer<GlobalPlayer>();
-            var maxCards = player.FocusResourceMax2 / FocusCardValue;
-            var rows = maxCards > 10 ? 2 : 1;
-
-            _area.Width.Set(FrameWidth * Math.Min(maxCards, 10), 0f);
-            _area.Height.Set(FrameHeight * rows, 0f);
-            _barFrame.Width.Set(_area.Width.Pixels, 0f);
-            _barFrame.Height.Set(_area.Height.Pixels, 0f);
-
-            base.Update(gameTime);
-        }
-
-        protected override void DrawSelf(SpriteBatch spriteBatch)
-        {
-            var player = Main.LocalPlayer.GetModPlayer<GlobalPlayer>();
-            var hoverText = $"{FocusResourceUISystem.FocusResourceText.Format(player.FocusResourceCurrent, player.FocusResourceMax2)}";
-            if (_area.IsMouseHovering) UICommon.TooltipMouseText(hoverText);
-            base.DrawSelf(spriteBatch);
-        }
+        
     }
 }
 
