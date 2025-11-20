@@ -1,0 +1,85 @@
+Items: {
+	ExampleSword: {
+		UsesXFocusResource: Consume {0} de enfoque.
+		DisplayName: Espada de ejemplo
+		Tooltip: ""
+	}
+
+	DeckOfCards: {
+		UsesXFocusResource: Consume {0} de enfoque.
+		DisplayName: Mazo de cartas
+		Tooltip: Dispara la carta que tienes en tu mano.
+		HeartsCardDescription: Carta de corazones: te cura la mitad del daño infligido más {0} (por objetivo).
+		ClubsCardDescription: Carta de tréboles: reduce la defensa del objetivo un {0}% durante {1} segundos.
+		DiamondsCardDescription:
+			'''
+			Carta de diamantes: regenera {0} puntos de enfoque adicionales.
+			         Rebota una vez y luego inflige x{1} de daño.
+			'''
+		SpadesCardDescription: Carta de espadas: aplica un efecto de sangrado leve al objetivo durante {0} segundos, infligiendo {1} de daño.
+	}
+
+	FocusCard: {
+		DisplayName: Carta de enfoque
+		Tooltip: Aumenta tu enfoque máximo en 20.
+	}
+
+	HeartBooster: {
+		DisplayName: Potenciador de corazones
+		Tooltip: Aumenta la curación base de tus cartas de corazones en {0} y su probabilidad de aparecer en tu mazo en un 100%.
+	}
+
+	ClubBooster: {
+		DisplayName: Potenciador de tréboles
+		Tooltip: Aumenta la probabilidad de que tus cartas de tréboles aparezcan en tu mazo en un 100%.
+	}
+}
+
+UI: {
+	InGameNotificationTitle: ¡Bienvenido al mundo, estás usando el Magician Class Mod!
+	FocusResource: Enfoque: {0} / {1}
+
+	HandDeck: {
+		Title: Mano de cartas
+
+		Tooltip: {
+			Title: Posibilidades
+			Hearts: Corazones
+			Diamonds: Diamantes
+			Clubs: Tréboles
+			Spades: Espadas
+		}
+	}
+}
+
+DamageClasses.TrickeryDamage.DisplayName: Daño de artimaña
+
+Projectiles: {
+	DeckOfCardsHoldout.DisplayName: Mazo de cartas preparado
+	ClubsCard.DisplayName: Carta de tréboles
+	DiamondsCard.DisplayName: Carta de diamantes
+	HeartsCard.DisplayName: Carta de corazones
+	SpadesCard.DisplayName: Carta de espadas
+}
+
+Buffs: {
+	FocusRegenerationLow: {
+		DisplayName: Regeneración de enfoque baja
+		Description: Regenera {0} puntos de enfoque adicionales por segundo.
+	}
+
+	BuffFocusRegenerationLow: {
+		DisplayName: Mejora de regeneración de enfoque baja
+		Description: Mods.MagicianClass.Buffs.BuffFocusRegenerationLow.Description
+	}
+
+	DebuffDefenseReductionLow: {
+		DisplayName: Reducción de defensa baja
+		Description: Mods.MagicianClass.Buffs.DebuffDefenseReductionLow.Description
+	}
+
+	DebuffBleedingLevelOne: {
+		DisplayName: Sangrado de nivel uno
+		Description: Mods.MagicianClass.Buffs.DebuffBleedingLevelOne.Description
+	}
+}

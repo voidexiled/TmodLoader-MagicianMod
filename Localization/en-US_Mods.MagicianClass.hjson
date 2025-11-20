@@ -38,6 +38,18 @@ Items: {
 UI: {
 	InGameNotificationTitle: Welcome to the world, you are using Magician Class Mod!
 	FocusResource: Focus: {0} / {1}
+
+	HandDeck: {
+		Title: Hand Deck
+
+		Tooltip: {
+			Title: Chances
+			Hearts: Hearts
+			Diamonds: Diamonds
+			Clubs: Clubs
+			Spades: Spades
+		}
+	}
 }
 
 DamageClasses.TrickeryDamage.DisplayName: Trickery Damage
