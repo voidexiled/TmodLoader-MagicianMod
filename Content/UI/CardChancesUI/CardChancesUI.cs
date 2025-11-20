@@ -4,10 +4,9 @@ using MagicianClass.Content.UI.FocusResourceUI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using ReLogic.Graphics;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
 using Terraria.UI;
@@ -47,13 +46,6 @@ public class CardChancesUI : UIState
             Height = { Pixels = FocusResourceBar.FrameHeight }
         };
 
-        _handDeckText = new UIText("Hand deck");
-        _handDeckText.Top.Set(-30, 0f);
-        _handDeckText.Left.Set(0, 0f);
-        _handDeckText.Width.Set(FocusResourceBar.FrameWidth * 4f, 0f);
-        _handDeckText.HAlign = 0.5f;
-
-
         Append(_area);
     }
 
@@ -74,11 +66,11 @@ public class CardChancesUI : UIState
 
         var screenOffsetX = (int)(_offsetX + 1f * Main.screenWidth);
 
-        var fontText = "Hand deck";
+        /*var fontText = CardChancesUISystem.TitleText.Value;
         var fontAsset = FontAssets.MouseText.Value;
         var fontSize = fontAsset.MeasureString(fontText);
         spriteBatch.DrawString(fontAsset, fontText, new Vector2(screenOffsetX + fontSize.X / 4, _offsetY - 24),
-            Color.Black);
+            Color.Black);*/
 
 
         if (currentPile.Count > 0)
@@ -100,7 +92,8 @@ public class CardChancesUI : UIState
                         _offsetY);
 
                 //Main.NewText($"texturePosition: {texturePosition}");
-                var desiredAlpha = (i + 1) / (float)currentPile.Count * 255;
+                //var desiredAlpha = (i + 1) / (float)currentPile.Count * 255;
+                var desiredAlpha = 255 - (currentPile.Count - (i + 1)) * 44;
 
 
                 spriteBatch.Draw(texture.Value,
@@ -109,7 +102,7 @@ public class CardChancesUI : UIState
                     new Color(255,
                         255,
                         255,
-                        (int)desiredAlpha),
+                        desiredAlpha),
                     0f,
                     Vector2.Zero,
                     1f,
@@ -148,8 +141,12 @@ public class CardChancesUI : UIState
 
     protected override void DrawSelf(SpriteBatch spriteBatch)
     {
-        var hoverText =
-            $"Chances\nHearts: {_heartDisplayPercent}\nDiamonds: {_diamondDisplayPercent}\nClubs: {_clubDisplayPercent}\nSpades: {_spadeDisplayPercent}";
+        var hoverText = $"{CardChancesUISystem.TooltipTitleText.Value}\n" +
+                        $"{CardChancesUISystem.TooltipHeartsText.Value}: {_heartDisplayPercent}\n" +
+                        $"{CardChancesUISystem.TooltipDiamondsText.Value}:  {_diamondDisplayPercent}\n" +
+                        $"{CardChancesUISystem.TooltipClubsText.Value}: {_clubDisplayPercent}\n" +
+                        $"{CardChancesUISystem.TooltipSpadesText.Value}: {_spadeDisplayPercent}";
+
         if (_area.IsMouseHovering) UICommon.TooltipMouseText(hoverText);
         base.DrawSelf(spriteBatch);
     }
@@ -161,6 +158,12 @@ internal class CardChancesUISystem : ModSystem
     internal CardChancesUI CardChancesUi;
     private UserInterface CardChancesUserInterface;
 
+    public static LocalizedText TitleText { get; set; }
+    public static LocalizedText TooltipTitleText { get; set; }
+    public static LocalizedText TooltipHeartsText { get; set; }
+    public static LocalizedText TooltipDiamondsText { get; set; }
+    public static LocalizedText TooltipClubsText { get; set; }
+    public static LocalizedText TooltipSpadesText { get; set; }
 
     public override void Load()
     {
@@ -168,8 +171,14 @@ internal class CardChancesUISystem : ModSystem
         CardChancesUserInterface = new UserInterface();
         CardChancesUserInterface.SetState(CardChancesUi);
 
-        // const string category = "UI";
+        const string category = "UI";
         // FocusResourceText ??= Mod.GetLocalization($"{category}.FocusResource");
+        TitleText ??= Mod.GetLocalization($"{category}.HandDeck.Title");
+        TooltipTitleText ??= Mod.GetLocalization($"{category}.HandDeck.Tooltip.Title");
+        TooltipHeartsText ??= Mod.GetLocalization($"{category}.HandDeck.Tooltip.Hearts");
+        TooltipDiamondsText ??= Mod.GetLocalization($"{category}.HandDeck.Tooltip.Diamonds");
+        TooltipClubsText ??= Mod.GetLocalization($"{category}.HandDeck.Tooltip.Clubs");
+        TooltipSpadesText ??= Mod.GetLocalization($"{category}.HandDeck.Tooltip.Spades");
     }
 
     public override void UpdateUI(GameTime gameTime)
