@@ -20,6 +20,7 @@ public class GlobalPlayer : ModPlayer
 
     public Dictionary<CardType, float> ChancesOfCards;
 
+
     public float FocusReductionCostMultiplier;
     public int FocusResourceCurrent;
     public int FocusResourceMax;
@@ -39,6 +40,7 @@ public class GlobalPlayer : ModPlayer
     public bool IsFocusing;
 
     public int MaxCardsPileLength;
+    public Dictionary<CardType, float> PermanentChancesOfCardsUpgrade;
 
 
     public override void Initialize()
@@ -66,18 +68,25 @@ public class GlobalPlayer : ModPlayer
         HeartsCardHealMultiplier = 1f;
         HeartsCardHealAdditive = 0;
 
-        ChancesOfCards = new Dictionary<CardType, float>
-        {
-            { CardType.Hearts, 0.02f },
-            { CardType.Diamonds, 0.10f },
-            { CardType.Clubs, 0.40f },
-            { CardType.Spades, 0.48f }
-        };
+        ChancesOfCards = CalculateChancesOfCards(
+            new Dictionary<CardType, float>
+            {
+                { CardType.Hearts, 0.05f },
+                { CardType.Diamonds, 0.15f },
+                { CardType.Clubs, 0.30f },
+                { CardType.Spades, 0.50f }
+            }
+        );
 
 
         MaxCardsPileLength = 4;
 
         HasMagicianEquipment = false;
+    }
+
+    private Dictionary<CardType, float> CalculateChancesOfCards(Dictionary<CardType, float> baseChances)
+    {
+        return baseChances;
     }
 
     public override void PostUpdateMiscEffects()
