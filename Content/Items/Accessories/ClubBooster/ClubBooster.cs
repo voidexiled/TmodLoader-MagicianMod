@@ -18,7 +18,7 @@ public class ClubBooster : ModItem
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
         var globalPlayer = Main.LocalPlayer.GetModPlayer<GlobalPlayer>();
-        globalPlayer.ChancesOfCards[CardType.Clubs] = 1f;
+        globalPlayer.ChancesOfCards[CardType.Clubs] += 1f;
         globalPlayer.HasMagicianEquipment = true;
     }
 }

@@ -18,7 +18,7 @@ public class HeartBooster : ModItem
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
         var globalPlayer = player.GetModPlayer<GlobalPlayer>();
-        globalPlayer.ChancesOfCards[CardType.Hearts] = 1f;
+        globalPlayer.ChancesOfCards[CardType.Hearts] += 1f;
         globalPlayer.HeartsCardHealAdditive = 4;
         globalPlayer.HasMagicianEquipment = true;
     }
