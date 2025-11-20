@@ -11,13 +11,14 @@ public class ClubBooster : ModItem
         Item.width = 28;
         Item.height = 20;
         Item.maxStack = 1;
-        Item.value = Item.sellPrice(0, 0, 15, 0);
+        Item.value = Item.sellPrice(0, 0, 15);
         Item.accessory = true;
     }
-    
+
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
-        player.GetModPlayer<GlobalPlayer>().ChancesOfCards[CardType.Clubs] = 1f;
-        
+        var globalPlayer = Main.LocalPlayer.GetModPlayer<GlobalPlayer>();
+        globalPlayer.ChancesOfCards[CardType.Clubs] = 1f;
+        globalPlayer.HasMagicianEquipment = true;
     }
 }

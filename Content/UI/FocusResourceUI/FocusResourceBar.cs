@@ -57,6 +57,9 @@ namespace MagicianClass.Content.UI.FocusResourceUI
         {
             var player = Main.LocalPlayer.GetModPlayer<GlobalPlayer>();
 
+            if (!player.ShouldShowMagicianUI())
+                return;
+
             var focusQuotient = player.FocusResourceCurrent / FocusCardValue;
             var maxFocusQuotients = player.FocusResourceMax2 / FocusCardValue;
 

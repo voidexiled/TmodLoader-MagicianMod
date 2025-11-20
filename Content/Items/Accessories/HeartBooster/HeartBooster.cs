@@ -11,13 +11,15 @@ public class HeartBooster : ModItem
         Item.width = 28;
         Item.height = 20;
         Item.maxStack = 1;
-        Item.value = Item.sellPrice(0, 0, 15, 0);
+        Item.value = Item.sellPrice(0, 0, 15);
         Item.accessory = true;
     }
-    
+
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
-        player.GetModPlayer<GlobalPlayer>().ChancesOfCards[CardType.Hearts] = 1f;
-        player.GetModPlayer<GlobalPlayer>().HeartsCardHealAdditive = 4;
+        var globalPlayer = player.GetModPlayer<GlobalPlayer>();
+        globalPlayer.ChancesOfCards[CardType.Hearts] = 1f;
+        globalPlayer.HeartsCardHealAdditive = 4;
+        globalPlayer.HasMagicianEquipment = true;
     }
 }

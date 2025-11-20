@@ -40,7 +40,6 @@ public class DeckOfCards : ModItem
         SpadesCardDescriptionText = this.GetLocalization("SpadesCardDescription");
     }
 
-
     public override void SetDefaults()
     {
         Item.damage = 4;
@@ -56,74 +55,12 @@ public class DeckOfCards : ModItem
         Item.value = Item.buyPrice(silver: 10);
         Item.rare = ItemRarityID.Blue;
         Item.UseSound = SoundID.Item1;
-        //Item.scale = 0.1f;
         Item.useTurn = true;
         Item.shoot = ModContent.ProjectileType<HeartsCard>();
         Item.noUseGraphic = true;
 
         _focusResourceCost = 12;
-        //Item.Hitbox = new Rectangle(0, 0, (int)(Item.width * _scaleMultiplier), (int)(Item.height * _scaleMultiplier));
     }
-
-
-    /*public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor,
-        Color itemColor,
-        Vector2 origin, float scale)
-    {
-        _textureInventoryItem ??= ModContent
-            .Request<Texture2D>($"{nameof(MagicianClass)}/Content/Items/Weapons/DeckOfCards/DeckOfCards",
-                AssetRequestMode.ImmediateLoad);
-
-        var _frame = new Rectangle(0, 0, _textureInventoryItem.Value.Width, _textureInventoryItem.Value.Height);
-        var color = Color.White;
-        var _origin = new Vector2(_textureInventoryItem.Value.Width * 0.5f, _textureInventoryItem.Value.Height * 0.5f);
-        var se = SpriteEffects.None;
-        var layerDepth = 0f;
-
-        spriteBatch.Draw(
-            _textureInventoryItem.Value,
-            position,
-            _frame,
-            color,
-            0f,
-            _origin,
-            scale,
-            se,
-            layerDepth
-        );
-        return false;
-    }*/
-
-    /*public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation,
-        ref float scale, int whoAmI)
-    {
-        _textureInventoryItem ??= ModContent
-            .Request<Texture2D>($"{nameof(MagicianClass)}/Content/Items/Weapons/DeckOfCards/DeckOfCards",
-                AssetRequestMode.ImmediateLoad);
-
-
-        var position = new Vector2(
-            Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-            Item.position.Y - Main.screenPosition.Y + Item.height * 0.5f - 4);
-        var frame = new Rectangle(0, 0, _textureInventoryItem.Value.Width, _textureInventoryItem.Value.Height);
-
-        var origin = new Vector2(_textureInventoryItem.Value.Width * 0.5f, _textureInventoryItem.Value.Height * 0.5f);
-        var se = SpriteEffects.None;
-        var layerDepth = 0f;
-
-        spriteBatch.Draw(
-            _textureInventoryItem.Value,
-            position,
-            frame,
-            lightColor,
-            rotation,
-            origin,
-            _scaleMultiplier,
-            se,
-            layerDepth
-        );
-        return false;
-    }*/
 
     public override bool PreDrawInWorld(
         SpriteBatch spriteBatch,
