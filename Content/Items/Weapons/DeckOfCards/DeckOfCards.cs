@@ -42,7 +42,7 @@ public class DeckOfCards : ModItem
 
     public override void SetDefaults()
     {
-        Item.damage = 4;
+        Item.damage = 7;
         Item.width = (int)(77 * InventoryScaleMultiplier);
         Item.height = (int)(72 * InventoryScaleMultiplier);
         Item.useTime = Item.useAnimation = 30;
@@ -59,7 +59,7 @@ public class DeckOfCards : ModItem
         Item.shoot = ModContent.ProjectileType<HeartsCard>();
         Item.noUseGraphic = true;
 
-        _focusResourceCost = 12;
+        _focusResourceCost = 10;
     }
 
     public override bool PreDrawInWorld(
