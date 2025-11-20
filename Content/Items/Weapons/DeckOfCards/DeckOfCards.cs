@@ -52,6 +52,7 @@ public class DeckOfCards : ModItem
         Item.shootSpeed = 10f;
         Item.autoReuse = true;
         Item.knockBack = 3;
+        Item.crit = 20;
         Item.value = Item.buyPrice(silver: 10);
         Item.rare = ItemRarityID.Blue;
         Item.UseSound = SoundID.Item1;
@@ -146,8 +147,9 @@ public class DeckOfCards : ModItem
     {
         var globalPlayer = player.GetModPlayer<GlobalPlayer>();
 
-        globalPlayer.FocusResourceCurrent -= _focusResourceCost;
+        //globalPlayer.FocusResourceCurrent -= _focusResourceCost;
 
+        globalPlayer.SpendFocusResource(_focusResourceCost);
 
         return true;
     }
